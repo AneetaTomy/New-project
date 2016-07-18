@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get '/signout', to: 'users#signout'
 
   get '/dashboard', to: 'dashboard#show'
+  post '/medication', to: 'dashboard#medication'
+
   root 'users#index'
 
   resources :users

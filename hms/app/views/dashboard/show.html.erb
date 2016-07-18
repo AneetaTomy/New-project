@@ -1,6 +1,29 @@
-<p align="center" >
-Welcome ,you are logged in successfully
-</p>
-<p align="right" >
-<%= link_to 'SignOut', signout_path %>
-</p>
+<h1> HEALTH MONITORING SYSTEM </h1>
+<div align="right" >
+<%= link_to 'Log Out', signout_path %>
+</div>
+<div>
+<%= form_for :medication, url:medication_path, method: :post do |f| %>
+  <p> 
+    Medication :  <%= f.select :drug_name, Drugg::DEFAULTDRUG  %> 
+  </p>
+  <p>
+        Dosage:  <input type="text" size="20" value="" name="dosage[]">
+        <select name="dosage[]">
+        <option>mg</option>
+        <option>ml</option>  
+        </select>
+    </p>
+    <p>
+        Timings:  <%= f.select :timing, ['Once', 'Twice', 'Thrice'] %>
+    </p>
+  <p>
+    <%= f.submit 'Save' %>
+  </p>
+<%end%>
+</div>
+
+
+
+
+
